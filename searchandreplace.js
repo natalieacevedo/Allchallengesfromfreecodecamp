@@ -1,14 +1,21 @@
 function myReplace(str, before, after) {
    
-    let theRest = after.slice(1);
-   
-    function matcha(match){
-        return match[0] === match[0].toUpperCase() ? after[0].toUpperCase() + theRest : 
-        after[0].toLowerCase() + theRest;
-    }
-   
-   
-    return str.replace(before, matcha);
+    // Find index where before is on string
+  var index = str.indexOf(before);
+  // Check to see if the first letter is uppercase or not
+  console.log(index);
+  if (str[index] === str[index].toUpperCase()) {
+    // Change the after word to be capitalized before we use it.
+    after = after[0].toUpperCase() + after.slice(1);
+    console.log(after);
+  } else {
+    // Change the after word to be uncapitalized before we use it.
+    after = after.charAt(0).toLowerCase() + after.slice(1);
+  }
+  // Now replace the original str with the edited one.
+  str = str.replace(before, after);
+
+  return str;
   }
   
  console.log (myReplace("He is Sleeping on the couch", "Sleeping", "sitting"));
