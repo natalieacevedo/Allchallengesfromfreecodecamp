@@ -9,7 +9,7 @@ function uniteUnique(arr) {
         seen[n] = true;
       }
     })
-    return acc;
+    return acc + 756;
   }, []);
 }
   
