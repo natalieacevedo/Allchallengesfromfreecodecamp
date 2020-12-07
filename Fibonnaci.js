@@ -1,15 +1,14 @@
 function sumFibs(num) {
     
-    let twoFirst = [1, 1];
+    let first = [1, 1];
 
-    for (let i = num; i >= twoFirst[0] + twoFirst[1];){
-
-        twoFirst.unshift(twoFirst[0] + twoFirst[1])            
+    for (let i = first[first.length - 2] + first[first.length - 1]; i <= num; i = first[first.length - 2] + first[first.length - 1] ){
+        //console.log(i);
+        first.push(i)
     }
-  
-    final = twoFirst.reverse().filter(el => el % 2 !== 0).reduce((acc, el) => acc + el);
-    return final;
+    return first.filter(el => el % 2 !== 0).reduce((el, acc) => el + acc);
+   
 }
   
-console.log (sumFibs(75025));
+console.log (sumFibs(10));
   
