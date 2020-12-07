@@ -1,12 +1,16 @@
 function sumFibs(num) {
     
-    let first = [1, 1];
+    let finalArray = [1, 1];
+    
 
-    for (let i = first[first.length - 2] + first[first.length - 1]; i <= num; i = first[first.length - 2] + first[first.length - 1] ){
-        //console.log(i);
-        first.push(i)
+    do {
+        
+        finalArray.push(finalArray[finalArray.length - 2] + finalArray[finalArray.length - 1])
+
     }
-    return first.filter(el => el % 2 !== 0).reduce((el, acc) => el + acc);
+    while (finalArray[finalArray.length -2] + finalArray[finalArray.length -1]  <= num);
+
+    return finalArray.filter(el => el % 2 !== 0).reduce((acc, el) => acc + el);
    
 }
   
