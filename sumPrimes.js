@@ -1,26 +1,21 @@
 function sumPrimes(num) {
-    
-    let isPrime;
-    let primes = [];
-
-    for (let i = 2; i <= num; i++){
-        isPrime = true;
-        for (let prime of primes){
-            if (i % prime === 0) {
-                isPrime = false;
-                break;
-            }
-        }
-        if (isPrime) {
-            primes.push(i);
-        }
+   
+    let i = 1;
+  let sum = 0;
+  while (i <= num) {
+    if (isPrime(i)) {
+      sum += i;
     }
-    return primes;
-
-
-
-
-    
+    i++;
+  }
+  return sum;
+}
+//function to check if a number is prime or not
+function isPrime(x) {
+  for (let i = 2; i < x; i++) {
+    if (x % i === 0) return false;
+  }
+  return x !== 1 && x !== 0;
     
     
 };
