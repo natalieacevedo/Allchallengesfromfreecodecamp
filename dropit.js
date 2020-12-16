@@ -1,12 +1,18 @@
 function dropElements(arr, func) {
     
-    let a = arr.filter(el => func(el));
+    
+    for (let i = 0; i < arr.length; i++){
+      
+        if (func(arr[i])) {
+          
+           return arr.slice(arr.indexOf(arr[i]));
+          
+        }
 
-    return a.length !== 0 ? arr.slice(arr.indexOf(a[0])) : [];
-
+    };
   
     
-  }
+};
   
- console.log(dropElements([1, 2, 3, 4], function(n) {return n > 5;}));
+ console.log(dropElements([1, 2, 3, 4], function(n) {return n >= 3;}));
   
