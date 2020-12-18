@@ -6,9 +6,15 @@ function steamrollArray(arr) {
             vacio.push(arr[i])
         }
         else {
-        steamrollArray(arr[i]);
-           // steamrollArray(arr[i]);
-            
+        
+            for (let j = 0; j < arr[i].length; j++){
+                vacio.push(arr[i][j]);
+
+                if (Array.isArray(arr[i][j])) {
+                    vacio.concat(arr[i][j]);
+                }
+            }
+           // vacio.concat(arr[i]);
         }
     }
   
