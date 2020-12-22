@@ -1,12 +1,10 @@
 function truthCheck(collection, pre) {
-    let buleano;
     for (let a in collection) {
-        buleano = true;
         if (!collection[a][pre]) {
             return false;
         }
     }
-    return buleano;
+    return true;
 
 };
   
