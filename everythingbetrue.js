@@ -1,11 +1,7 @@
 
-  function truthCheck(collection, pre) {
-    for (let a of collection) {
-        if (!a.hasOwnProperty(pre) || !a[pre]) {
-            return false;
-        }
-    }
-    return true;
+function truthCheck(collection, pre) {
+    
+    return collection.every(el => el[pre]);
 
 };
 
