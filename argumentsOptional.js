@@ -1,35 +1,27 @@
 function addTogether() {
-    
-    let argumentos = Array.from(arguments);
+    let acumula = 0;
+    let todos = [...arguments];
 
-    if (argumentos.length === 2) {
-        return argumentos.reduce((acc, el) => {
-            if (typeof el === 'number' && typeof acc === 'number') {
-                return acc + el; 
-            } else {
-                return undefined;
+    for (let item of todos) {
+        if (typeof item !== 'number') {
+            return undefined
+         
+        } else if (todos.length === 1) {
+            return function (elemento) {
+                return item + elemento;
             }
-        })
-    
-    } else if(typeof argumentos[0] !== 'number' ){
-        return undefined
-    
-    } else {
-        return function (num) {
-            if (typeof num === 'number') {
-                return argumentos[0] + num;
-            } else {
-                return undefined;
-            }
+        
+        } else {
+            acumula += item;
         }
     }
 
-
+    return acumula;
 
 
   }
   
-  //console.log(addTogether(9,'5'));
-let nuevito = addTogether(3);
+  console.log(addTogether(2)(3));
+//let nuevito = addTogether(3);
 
-console.log(nuevito(2));
+//console.log(nuevito(2));
