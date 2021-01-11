@@ -1,22 +1,15 @@
 function palindrome(str) {
     
-   
-    
-    let regular = /[0-9a-z]/gi;
-
-    let nosymbols = str.toLowerCase().match(regular);
-
-    let empty = [];
-
-    for (let i = nosymbols.length-1; i >= 0; i--){
-
-        empty.push(nosymbols[i]);
+    str = str.toLowerCase().replace(/[\W_]/g, "");
+  for (var i = 0, len = str.length - 1; i < len / 2; i++) {
+    if (str[i] !== str[len - i]) {
+      return false;
     }
-
-   return empty.join('') === nosymbols.join("");
+  }
+  return true;
     
 };
 
 
-console.log(palindrome('_eye'));
+console.log(palindrome('_eYe'));
   
