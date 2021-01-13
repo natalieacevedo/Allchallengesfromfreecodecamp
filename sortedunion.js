@@ -7,7 +7,7 @@ function uniteUnique(arr) {
       if (!seen[n]) {
         acc.push(n);
         seen[n] = true;
-      }
+      } 
     })
     return acc;
   }, []);
