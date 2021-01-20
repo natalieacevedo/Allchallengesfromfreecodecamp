@@ -17,12 +17,15 @@ function checkCashRegister(price, cash, cid) {
         ["ONE HUNDRED", 100]
     ].reverse();
 
-   
-    let segundoValor = 0;
+    let verdades = false;
+    let i;
+    
     let fin = [];
     let backwards = cid.reverse();
+    
     let cambio = cash - price;
-    let totalCid = cid.reduce((acc, el) =>(acc + el[1]), 0);
+    console.log(cambio);
+    let totalCid = cid.reduce((acc, el) => (acc + el[1]), 0);
 
     if (totalCid < cambio) {
         finalObj.status = "INSUFFICIENT_FUNDS";
@@ -34,23 +37,29 @@ function checkCashRegister(price, cash, cid) {
         finalObj.change = cid;
         return finalObj;
    
-    }else {
+    } else {
        
-        for (let i = 0; i < backwards.length; i++){
-            while (cambio > 0 && cambio >= backwards[i][1]) {
-                if(segundoValor < backwards[i][1]) {
-                    cambio -= values[i][1];
-                    segundoValor += values[i][1];
-                }
-                fin.push(segundoValor);
+        for (i = 0; i < backwards.length; i++) {
+            let restaBackwards = backwards[i][1];
+            let segundoValor = 0;
+            while (cambio >= restaBackwards && segundoValor < backwards[i][1]) {
+                cambio -= values[i][1];
+                segundoValor += values[i][1];
+                restaBackwards -= values[i][1];
+               
             }
-           
-            
+            fin.push(segundoValor);
         }
+    
+       
     }
-   return fin;
+    return fin;
    
-};
+}
+
+   
+    
+
 
 
 
